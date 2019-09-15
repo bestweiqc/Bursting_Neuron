@@ -1,0 +1,29 @@
+proc spinecorr() {
+
+		forsec Dendrites {
+			if (method == 1) {
+				L  = L * 2
+				Ra = Ra / 2
+			}
+
+			if (method == 2) {
+				g_pas	  = g_pas     * 2 
+				cm   	  = cm        * 2
+				phi_cad   = phi_cad   / 2
+
+				gbar_naf  = gbar_naf  * 2
+				gbar_nap  = gbar_nap  * 2
+				gbar_kdr  = gbar_kdr  * 2
+				gbar_ka   = gbar_ka   * 2
+				gbar_kc   = gbar_kc   * 2
+				gbar_kahp = gbar_kahp * 2
+				gbar_k2   = gbar_k2   * 2
+				gbar_km   = gbar_km   * 2
+				gbar_cat  = gbar_cat  * 2
+				gbar_cal  = gbar_cal  * 2
+				gbar_ar   = gbar_ar   * 2
+			}
+		}
+
+		print "Spine correction with method: ", method
+	}

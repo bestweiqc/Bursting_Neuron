@@ -1,0 +1,103 @@
+proc setupfig() {
+
+		fig = $1
+		if ( fig == -1 ) comp[1] {
+			dnap   = 0.0   
+			dkc    = 1.6	
+		}
+
+		if ( fig == -2 ) comp[1] {
+			dnap    = 1.25  
+			dkc     = 1.0
+		}
+
+		if ( fig == 21 || fig == 22 ) comp[43] {
+			g_pas     = g_pas + 2.5/area(0.5)   // in the paper is 20 nS, here is 25 nS
+			inj1_     = new IClamp(0.5)
+			inj1_.dur = 150
+			inj1_.del = 0
+			inj1_.amp = -0.15	
+
+			inj2_     = new IClamp(0.5)
+			inj2_.dur = 800
+			inj2_.del = 150
+
+			if( fig == 21 )	inj2_.amp = 1.5
+			if( fig == 22 )	inj2_.amp = 2.5
+
+			dnap   = 0.0
+			dkc    = 1.6
+		}
+
+
+		if ( fig == 41 ||  fig == 42 || fig == 43 || fig == 44 ) comp[1] {
+			inj1_     = new IClamp(0.5)
+			inj1_.dur = 150
+			inj1_.del = 0
+			inj1_.amp = -0.15	
+
+			inj2_     = new IClamp(0.5)
+			inj2_.dur = 250
+			inj2_.del = 150
+
+			if( fig == 41 )	inj2_.amp = 2.5
+			if( fig == 42 )	inj2_.amp = 1.5
+			if( fig == 43 )	inj2_.amp = 1.1
+			if( fig == 44 )	inj2_.amp = 0.6
+
+			dnap   = 0.0
+			dkc    = 1.3
+		}
+
+		if ( fig == 51 || fig == 52 ) comp[1] {
+			inj1_     = new IClamp(0.5)
+			inj1_.dur = 150
+			inj1_.del = 0
+			inj1_.amp = -0.15	
+
+			inj2_     = new IClamp(0.5)
+			inj2_.dur = 1000
+			inj2_.del = 150
+
+			if( fig == 51 )	inj2_.amp = 0.75
+			if( fig == 52 )	inj2_.amp = 1.3
+
+			dnap = 0
+			dkc  = 1.6
+		}
+
+		if ( fig == 61 || fig == 62 ) comp[1] {
+			inj1_     = new IClamp(0.5)
+			inj1_.dur = 150
+			inj1_.del = 0
+			inj1_.amp = -0.15	
+
+			inj2_     = new IClamp(0.5)
+			inj2_.dur = 2500
+			inj2_.del = 150
+
+			if( fig == 61 )	inj2_.amp = 0.6
+			if( fig == 62 )	inj2_.amp = 1.3
+
+			dnap   = 0.7
+			dkc    = 1.6
+		}
+
+		if ( fig == 71 || fig == 72 || fig == 73 ) comp[1] {
+			inj1_     = new IClamp(0.5)
+			inj1_.dur = 150
+			inj1_.del = 0
+			inj1_.amp = -0.15	
+
+			inj2_     = new IClamp(0.5)
+			inj2_.dur = 2500
+			inj2_.del = 150
+			inj2_.amp = 0.7
+
+			if( fig == 71 )	dnap = 0
+			if( fig == 72 )	dnap = 0.7
+			if( fig == 73 )	dnap = 1.0
+
+			dkc    = 1.6
+		}
+	}
